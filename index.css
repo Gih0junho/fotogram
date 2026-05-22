@@ -1,296 +1,275 @@
-/* =========================
-   RESET
-========================= */
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
 *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-/* =========================
-   BODY
-========================= */
 body{
-    min-height: 100vh;
-    font-family: 'Poppins', sans-serif;
+
+    min-height:100vh;
+
     background:
-        radial-gradient(circle at top left, #7c3aed 0%, transparent 30%),
-        radial-gradient(circle at bottom right, #06b6d4 0%, transparent 30%),
-        linear-gradient(135deg, #0f172a, #111827, #1e1b4b);
+    radial-gradient(circle at top,#5e5e5e 0%,#111 40%),
+    linear-gradient(180deg,#2c2c2c,#050505);
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 30px;
-    overflow-x: hidden;
-    color: white;
+    font-family:'VT323', monospace;
+
+    color:white;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:30px;
+
+    overflow-x:hidden;
 }
 
-/* =========================
-   CONTAINER
-========================= */
+/* RUÍDO */
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    background-image:
+    url("https://i.imgur.com/o5uMfKo.png");
+
+    opacity:0.07;
+
+    pointer-events:none;
+
+    mix-blend-mode:screen;
+
+    animation:noise .3s infinite;
+}
+
+@keyframes noise{
+
+    0%{transform:translate(0)}
+
+    20%{transform:translate(-2%,1%)}
+
+    40%{transform:translate(1%,-1%)}
+
+    60%{transform:translate(-1%,2%)}
+
+    80%{transform:translate(2%,-1%)}
+
+    100%{transform:translate(0)}
+}
+
 .container{
-    width: 100%;
-    max-width: 950px;
 
-    background: rgba(255,255,255,0.08);
+    width:100%;
 
-    border: 1px solid rgba(255,255,255,0.12);
+    max-width:1150px;
 
-    border-radius: 30px;
+    background:rgba(20,20,20,.92);
 
-    padding: 35px;
+    border:2px solid #777;
+
+    border-radius:25px;
+
+    padding:25px;
 
     box-shadow:
-        0 10px 40px rgba(0,0,0,0.45);
-
-    position: relative;
-    z-index: 1;
+    0 0 40px rgba(255,255,255,.08);
 }
 
-/* =========================
-   TITULO
-========================= */
 h1{
-    font-size: 2.5rem;
-    margin-bottom: 30px;
-    text-align: center;
-    font-weight: 700;
 
-    background: linear-gradient(
-        to right,
-        #ffffff,
-        #c4b5fd,
-        #67e8f9
-    );
+    text-align:center;
 
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    font-size:4rem;
+
+    letter-spacing:5px;
+
+    color:#ddd;
+
+    margin-bottom:20px;
+
+    text-shadow:
+    0 0 10px rgba(255,255,255,.2);
 }
 
-/* =========================
-   VIDEO / CAMERA
-========================= */
 video{
-    width: 50%;
-    max-width: 750px;
 
-    display: block;
-    margin: 0 auto;
+    width:100%;
 
-    border-radius: 25px;
+    max-width:760px;
 
-    background: black;
+    display:block;
 
-    border: 3px solid rgba(255,255,255,0.15);
+    margin:auto;
 
-    object-fit: cover;
+    border-radius:20px;
 
-    transform: scaleX(-1);
+    border:4px solid #aaa;
+
+    transform:scaleX(-1);
+
+    object-fit:cover;
+
+    filter:
+    contrast(115%)
+    brightness(1.1)
+    grayscale(10%);
 
     box-shadow:
-        0 10px 35px rgba(0,0,0,0.5);
+    0 0 40px rgba(255,255,255,.1);
 }
 
-/* =========================
-   BOTOES
-========================= */
+.camera-info{
+
+    text-align:center;
+
+    margin-top:10px;
+
+    color:#ff4444;
+
+    font-size:26px;
+
+    animation:pisca 1s infinite;
+}
+
+@keyframes pisca{
+
+    50%{
+        opacity:.3;
+    }
+}
+
 .botoes{
-    margin-top: 30px;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
+    margin-top:30px;
 
-    gap: 18px;
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(180px,1fr));
+
+    gap:15px;
 }
 
 button{
-    padding: 15px 25px;
 
-    min-width: 200px;
+    border:none;
 
-    border: none;
-    border-radius: 18px;
+    padding:14px;
 
-    font-size: 16px;
-    font-weight: 600;
+    border-radius:14px;
 
-    color: white;
-
-    cursor: pointer;
-
-    transition: 0.35s;
-
-    background: linear-gradient(
-        135deg,
-        #7c3aed,
-        #4f46e5
+    background:
+    linear-gradient(
+        180deg,
+        #888,
+        #444
     );
 
-    box-shadow:
-        0 8px 20px rgba(124,58,237,0.35);
+    color:white;
 
-    position: relative;
+    font-family:'VT323', monospace;
 
-    overflow: hidden;
-}
+    font-size:24px;
 
-/* brilho */
-button::before{
-    content: "";
+    cursor:pointer;
 
-    position: absolute;
+    transition:.2s;
 
-    top: 0;
-    left: -120%;
-
-    width: 70%;
-    height: 100%;
-
-    background: rgba(255,255,255,0.2);
-
-    transform: skewX(-25deg);
-
-    transition: 0.6s;
-}
-
-button:hover::before{
-    left: 130%;
+    border:1px solid #bbb;
 }
 
 button:hover{
-    transform: translateY(-4px);
 
-    box-shadow:
-        0 12px 25px rgba(124,58,237,0.45);
+    transform:scale(1.03);
+
+    background:
+    linear-gradient(
+        180deg,
+        #aaa,
+        #555
+    );
 }
 
-button:active{
-    transform: scale(0.96);
+.camera-controls{
+
+    text-align:center;
+
+    margin-top:25px;
 }
 
-/* =========================
-   PHOTOS
-========================= */
+#cameraStatus{
+
+    margin-top:10px;
+
+    font-size:22px;
+}
+
 .photos{
-    margin-top: 40px;
 
-    display: grid;
+    margin-top:35px;
+
+    display:grid;
 
     grid-template-columns:
-        repeat(auto-fit, minmax(180px,1fr));
+    repeat(auto-fit,minmax(260px,1fr));
 
-    gap: 20px;
+    gap:30px;
 }
 
-/* =========================
-   CANVAS
-========================= */
-canvas{
-    width: 100%;
+.foto-box{
 
-    border-radius: 20px;
+    position:relative;
 
-    border: 2px solid rgba(255,255,255,0.12);
+    background:white;
 
-    background: rgba(255,255,255,0.04);
+    padding:12px 12px 70px 12px;
 
-    padding: 8px;
+    border-radius:10px;
+
+    transform:rotate(-2deg);
 
     box-shadow:
-        0 6px 18px rgba(0,0,0,0.35);
-
-    transition: 0.35s;
+    0 10px 30px rgba(0,0,0,.5);
 }
 
-canvas:hover{
-    transform: scale(1.03);
+.foto-box canvas{
 
-    box-shadow:
-        0 10px 25px rgba(0,0,0,0.5);
+    width:100%;
+
+    border-radius:5px;
+
+    background:black;
 }
 
-/* =========================
-   SCROLL
-========================= */
-::-webkit-scrollbar{
-    width: 10px;
+.dataFoto{
+
+    position:absolute;
+
+    bottom:18px;
+
+    right:18px;
+
+    color:#ff914d;
+
+    font-size:22px;
+
+    text-shadow:0 0 5px black;
 }
 
-::-webkit-scrollbar-track{
-    background: #111827;
-}
-
-::-webkit-scrollbar-thumb{
-    background: #7c3aed;
-    border-radius: 20px;
-}
-
-/* =========================
-   RESPONSIVO
-========================= */
-@media(max-width: 768px){
-
-    body{
-        padding: 15px;
-    }
-
-    .container{
-        padding: 22px;
-        border-radius: 25px;
-    }
+@media(max-width:768px){
 
     h1{
-        font-size: 1.9rem;
+        font-size:2.5rem;
     }
 
     .botoes{
-        flex-direction: column;
-    }
-
-    button{
-        width: 100%;
-    }
-}
-
-/* =========================
-    RESPONSIVO - VIDEO
-========================= */
-@media(max-width: 768px){
-
-    body{
-        align-items: flex-start;
-    }
-
-    .container{
-        padding: 20px;
-        border-radius: 24px;
-    }
-
-    h1{
-        margin-bottom: 22px;
-    }
-
-    video{
-        border-radius: 20px;
-        max-height: 60vh;
-    }
-
-    .botoes{
-        grid-template-columns: 1fr;
-    }
-
-    button{
-        padding: 14px;
-    }
-
-    .photos{
-        grid-template-columns: 1fr;
-    }
-
-    canvas{
-        border-radius: 18px;
+        grid-template-columns:1fr;
     }
 }

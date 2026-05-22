@@ -1,35 +1,85 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fotogram</title>
+    <title>Fotogram 2000</title>
+
     <link rel="stylesheet" href="index.css">
 </head>
-<body>
-    <div class="container">
-        <h1>Tire sua selfie 📸!</h1>
-        <video id="camera" autoplay></video>
 
-       <div class="botoes"> <button onclick="capturarPhoto('normal')">Normal</button>
-        <button onclick="capturarPhoto('cinza')">Efeito cinza</button>
-        <button onclick="capturarPhoto('antiga')">Efeito antiga</button>
-        <button onclick="capturarPhoto('invertido')">Efeito invertido</button>
-        <button onclick="capturarPhoto('negativo')">Efeito negativo</button>
-        <button onclick="capturarPhoto('desfoque')">Efeito Desfocado</button>
-        <button onclick="capturarPhoto('sobreposicao')">Efeito sobreposição</button>
-        <button onclick="capturarPhoto('brilho')">Efeito Brilho</button>
-        <button onclick="capturarPhoto('tintado')">Efeito Tintado</button>
-        <button onclick="capturarPhoto('flash')">Efeito Flash</button>
-        <button onclick="capturarPhoto('saturacao')">Efeito Saturação</button>
-        <button onclick="capturarPhoto('opacidade')">Efeito Opacidade</button>
-        <button onclick="capturarPhoto('rotacao')">Efeito Rotação</button>
-    </div>
-        <br>
-        <br>
+<body>
+
+    <div class="container">
+
+        <h1>FOTOGRAM 2000</h1>
+
+        <video id="camera" autoplay playsinline></video>
+
+        <div class="camera-info">
+            REC ● VGA 2004
+        </div>
+
+        <div class="botoes">
+
+            <button onclick="capturarPhoto('normal')">Normal</button>
+
+            <button onclick="capturarPhoto('cinza')">Cinza</button>
+
+            <button onclick="capturarPhoto('antiga')">Antiga</button>
+
+            <button onclick="capturarPhoto('negativo')">Negativo</button>
+
+            <button onclick="capturarPhoto('desfoque')">Blur</button>
+
+            <button onclick="capturarPhoto('flash')">Flash</button>
+
+            <button onclick="capturarPhoto('vhs')">VHS</button>
+
+            <button onclick="capturarPhoto('cybershot')">
+                CyberShot
+            </button>
+
+            <button onclick="capturarPhoto('flash2000')">
+                Flash 2000
+            </button>
+
+            <button onclick="capturarPhoto('analogica')">
+                Analógica
+            </button>
+
+            <button onclick="capturarPhoto('fotolog')">
+                Fotolog
+            </button>
+
+            <button onclick="capturarPhoto('oculos')">
+                Óculos
+            </button>
+
+            <button onclick="capturarPhoto('chapeu')">
+                Chapéu
+            </button>
+
+        </div>
+
+        <div class="camera-controls">
+
+            <button id="startBtn">
+                Iniciar câmera
+            </button>
+
+            <div id="cameraStatus"></div>
+
+        </div>
 
         <div id="photos" class="photos"></div>
-    
+
+    </div>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/@vladmandic/face-api/dist/face-api.min.js"></script>
+
+    <script defer src="index.js"></script>
 </body>
-<script src="index.js"></script>
+
 </html>
