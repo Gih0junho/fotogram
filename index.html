@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fotogram</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Tire sua selfie 📸!</h1>
+        <video id="camera" autoplay></video>
+
+       <div class="botoes"> <button onclick="capturarPhoto('normal')">Normal</button>
+        <button onclick="capturarPhoto('cinza')">Efeito cinza</button>
+        <button onclick="capturarPhoto('antiga')">Efeito antiga</button>
+        <button onclick="capturarPhoto('invertido')">Efeito invertido</button>
+        <button onclick="capturarPhoto('negativo')">Efeito negativo</button>
+        <button onclick="capturarPhoto('desfoque')">Efeito Desfocado</button>
+        <button onclick="capturarPhoto('sobreposicao')">Efeito sobreposição</button>
+        <button onclick="capturarPhoto('brilho')">Efeito Brilho</button>
+        <button onclick="capturarPhoto('tintado')">Efeito Tintado</button>
+        <button onclick="capturarPhoto('flash')">Efeito Flash</button>
+        <button onclick="capturarPhoto('saturacao')">Efeito Saturação</button>
+        <button onclick="capturarPhoto('opacidade')">Efeito Opacidade</button>
+        <button onclick="capturarPhoto('rotacao')">Efeito Rotação</button>
+    </div>
+        <br>
+        <br>
+
+        <div id="photos" class="photos"></div>
+    
+</body>
+<script src="index.js"></script>
+</html>

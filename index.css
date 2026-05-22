@@ -1,0 +1,256 @@
+/* =========================
+   RESET
+========================= */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* =========================
+   BODY
+========================= */
+body{
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    background:
+        radial-gradient(circle at top left, #7c3aed 0%, transparent 30%),
+        radial-gradient(circle at bottom right, #06b6d4 0%, transparent 30%),
+        linear-gradient(135deg, #0f172a, #111827, #1e1b4b);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    overflow-x: hidden;
+    color: white;
+}
+
+/* =========================
+   CONTAINER
+========================= */
+.container{
+    width: 100%;
+    max-width: 950px;
+
+    background: rgba(255,255,255,0.08);
+
+    border: 1px solid rgba(255,255,255,0.12);
+
+    border-radius: 30px;
+
+    padding: 35px;
+
+    box-shadow:
+        0 10px 40px rgba(0,0,0,0.45);
+
+    position: relative;
+    z-index: 1;
+}
+
+/* =========================
+   TITULO
+========================= */
+h1{
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    text-align: center;
+    font-weight: 700;
+
+    background: linear-gradient(
+        to right,
+        #ffffff,
+        #c4b5fd,
+        #67e8f9
+    );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* =========================
+   VIDEO / CAMERA
+========================= */
+video{
+    width: 50%;
+    max-width: 750px;
+
+    display: block;
+    margin: 0 auto;
+
+    border-radius: 25px;
+
+    background: black;
+
+    border: 3px solid rgba(255,255,255,0.15);
+
+    object-fit: cover;
+
+    transform: scaleX(-1);
+
+    box-shadow:
+        0 10px 35px rgba(0,0,0,0.5);
+}
+
+/* =========================
+   BOTOES
+========================= */
+.botoes{
+    margin-top: 30px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 18px;
+}
+
+button{
+    padding: 15px 25px;
+
+    min-width: 200px;
+
+    border: none;
+    border-radius: 18px;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    color: white;
+
+    cursor: pointer;
+
+    transition: 0.35s;
+
+    background: linear-gradient(
+        135deg,
+        #7c3aed,
+        #4f46e5
+    );
+
+    box-shadow:
+        0 8px 20px rgba(124,58,237,0.35);
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+/* brilho */
+button::before{
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -120%;
+
+    width: 70%;
+    height: 100%;
+
+    background: rgba(255,255,255,0.2);
+
+    transform: skewX(-25deg);
+
+    transition: 0.6s;
+}
+
+button:hover::before{
+    left: 130%;
+}
+
+button:hover{
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 12px 25px rgba(124,58,237,0.45);
+}
+
+button:active{
+    transform: scale(0.96);
+}
+
+/* =========================
+   PHOTOS
+========================= */
+.photos{
+    margin-top: 40px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(180px,1fr));
+
+    gap: 20px;
+}
+
+/* =========================
+   CANVAS
+========================= */
+canvas{
+    width: 100%;
+
+    border-radius: 20px;
+
+    border: 2px solid rgba(255,255,255,0.12);
+
+    background: rgba(255,255,255,0.04);
+
+    padding: 8px;
+
+    box-shadow:
+        0 6px 18px rgba(0,0,0,0.35);
+
+    transition: 0.35s;
+}
+
+canvas:hover{
+    transform: scale(1.03);
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,0.5);
+}
+
+/* =========================
+   SCROLL
+========================= */
+::-webkit-scrollbar{
+    width: 10px;
+}
+
+::-webkit-scrollbar-track{
+    background: #111827;
+}
+
+::-webkit-scrollbar-thumb{
+    background: #7c3aed;
+    border-radius: 20px;
+}
+
+/* =========================
+   RESPONSIVO
+========================= */
+@media(max-width: 768px){
+
+    body{
+        padding: 15px;
+    }
+
+    .container{
+        padding: 22px;
+        border-radius: 25px;
+    }
+
+    h1{
+        font-size: 1.9rem;
+    }
+
+    .botoes{
+        flex-direction: column;
+    }
+
+    button{
+        width: 100%;
+    }
+}
